@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.more-complex-component-grid-template {
+		display: grid;
+		grid-template-columns: 1.5fr 1fr;
+		grid-template-rows: 1fr 2fr 1fr;
+		gap: 4px;
+		grid-template-areas:
+    "header image"
+    "text image"
+    "text buttons";
+	}
+
+	@container (max-width: 900px) {
+		.more-complex-component-grid-template {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto auto 1fr;
+			gap: 4px;
+			grid-template-areas:
+    "header"
+    "image"
+    "text"
+    "buttons";
+		}
+	}
+
+}
